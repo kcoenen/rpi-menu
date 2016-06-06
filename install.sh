@@ -5,19 +5,16 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-# install debendencies
-sudo deb http://download.webmin.com/download/repository sarge contrib
-cd /root
-sudo wget http://www.webmin.com/jcameron-key.asc
-sudo apt-key add jcameron-key.asc
-
-sudo apt-get update && sudo apt-get install samba dosbox libre-office chromium-browser audacity filezilla konqueror lxde screen byobu sqlite3 webmin -y
+sudo wget http://prdownloads.sourceforge.net/webadmin/webmin_1.801_all.deb
+sudo 
+dpkg --install webmin_1.801_all.deb
+sudo apt-get update && sudo apt-get install samba dosbox libre-office chromium-browser audacity filezilla konqueror lxde screen byobu sqlite3 -y
 
 #download youtube-dl and set output folder
 sudo wget https://yt-dl.org/downloads/2016.06.03/youtube-dl -O /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 
-echo "--output /media/HDD/youtube/%(title)s.%(ext)s" > ~/.config/youtube-dl.conf
+echo "--output /media/HDD/youtube/%(title)s.%(ext)s" > /home/pi/.config/youtube-dl.conf
 
 # create mountpoint and mount HDD or usb-stick
 echo "is external drive ntfs or fat32:"

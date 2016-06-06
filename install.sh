@@ -37,7 +37,7 @@ esac
 
 #set samba settings.
 
-sudo cp smb.conf /etc/samba && sudo service samba restart
+sudo cp smb.conf /etc/samba && sudo service smbd restart
 
 
 #Download convert program

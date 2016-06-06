@@ -45,3 +45,6 @@ sudo mkdir /media/HDD/youtube
 
 git clone https://github.com/kcoenen/convert.git /media/HDD/youtube
 
+# set rpi-menu in right location
+sudo cp rpi-menu /usr/bin && sudo chmod +x /usr/bin/rpi-menu
+

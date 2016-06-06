@@ -25,7 +25,7 @@ read fstab
 
 case $fstab in
 1)
-sudo mkdir /media/HDD && sudo echo "echo /dev/sda1       /media/HDD      vfat defaults          0       0" >> /etc/fstab
+sudo mkdir /media/HDD && sudo mount /dev/sda1 /media/HDD && sudo echo "echo /dev/sda1       /media/HDD      vfat defaults          0       0" >> /etc/fstab
 ;;
 2)
 sudo mkdir /media/HDD && sudo echo "echo /dev/sda1       /media/HDD      ntfs-3g defaults          0       0" >> /etc/fstab

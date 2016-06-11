@@ -6,7 +6,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 if mount | grep /dev/sda > /dev/null; then
-	pass
+	sudo cp smb.conf /etc/samba && sudo service smbd restart
+	exit
 else
     echo "is external drive ntfs or fat32:"
 	echo "fat32		[1]"

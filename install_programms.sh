@@ -19,5 +19,7 @@ apt-get install webmin
 sudo wget https://yt-dl.org/downloads/2016.06.03/youtube-dl -O /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 
+echo "--output /media/HDD/youtube/%(title)s.%(ext)s" > /home/pi/.config/youtube-dl.conf
+
 # Install other programms
 sudo apt-get update && sudo apt-get install samba dosbox libre-office chromium-browser audacity filezilla konqueror lxde screen byobu sqlite3 postgresql-9.3 -y

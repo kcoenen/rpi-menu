@@ -24,7 +24,8 @@ echo "reboot		[2]"
 echo "shutdown 	[3]"
 echo "start gui	[4]"
 echo "convert		[5]"
-echo "exit		[6]"
+echo " rpi-config	[6]"
+echo "exit		[7]"
 echo "What do you want to do now give number followd by [ENTER]:"
 read option
 
@@ -45,6 +46,8 @@ sudo startx
 cd /media/HDD/youtube && ./convert.sh
 ;;
 6)
+sudo raspi-config
+7)
 exit
 ;;
 esac

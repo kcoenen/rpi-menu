@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [[ $EUID -ne 0 ]]; then
+    echo "This script should only be run as root"
+    exit 1
+fi
+
+echo "what do you want to do:"
+echo "update		[1]"
+echo "reboot		[2]"
+echo "start gui	[3]"
+echo "start odoo 44	[4]"
+echo "exit		[5]"
+echo "What do you want to do now give number followd by [ENTER]:"
+read option
+
+case $option in
+1)
+sudo apt-get update && sudo apt-get dist-upgrade -y
+;;
+2)
+sudo shutdown -r now
+;;
+3)
+sudo startx
+;;
+4)
+#sudo -u openerp /opt/46/openerptest/start_server.sh
+/bin/su - openerp -c "/opt/46/openerptest/server/openerp-server -c /etc/46openerp/openerp-server-test.conf -u transport"
+;;
+5)
+exit
+;;
+esac

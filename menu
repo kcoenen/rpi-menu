@@ -9,7 +9,7 @@ echo "what do you want to do:"
 echo "update		[1]"
 echo "reboot		[2]"
 echo "start gui	[3]"
-echo "start odoo 44	[4]"
+echo "start odoo 4469	[4]"
 echo "exit		[5]"
 echo "What do you want to do now give number followd by [ENTER]:"
 read option

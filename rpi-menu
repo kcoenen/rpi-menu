@@ -31,7 +31,7 @@ read option
 
 case $option in
 1)
-sudo apt-get update && sudo apt-get dist-upgrade -y && sudo rpi-update && sudo shutdown -r now
+sudo apt-get update && sudo apt-get dist-upgrade -y && sudo rpi-update
 ;;
 2)
 sudo shutdown -r now

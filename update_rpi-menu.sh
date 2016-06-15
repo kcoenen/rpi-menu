@@ -6,4 +6,4 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # set rpi-menu in right location
-sudo wget https://github.com/kcoenen/rpi-menu/blob/master/rpi-menu -O /usr/bin/rpi-menu && sudo chmod +x /usr/bin/rpi-menu
+sudo cp rpi-menu /usr/bin && sudo chmod +x /usr/bin/rpi-menu

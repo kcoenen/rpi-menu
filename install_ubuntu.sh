@@ -19,7 +19,7 @@ sudo add-apt-repository ppa:libreoffice/ppa
 sudo add-apt-repository ppa:mc3man/trusty-media
 sudo add-apt-repository ppa:tomahawk/ppa
 sudo add-apt-repository ppa:webupd8team/sublime-text-3
-sudo apt-get update && sudo apt-get install  git lubuntu-desktop firefox tomahawk sublime-text-installer gimp steam thunderbird vlc gparted dd geany wine samba dosbox libreoffice audacity filezilla konqueror screen byobu sqlite3 postgresql-9.3 -y
+sudo apt-get update && sudo apt-get install git lubuntu-desktop firefox tomahawk sublime-text-installer gimp steam thunderbird vlc gparted dd geany wine samba dosbox libreoffice audacity filezilla konqueror screen byobu sqlite3 postgresql-9.3 -y
 
 # install chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb

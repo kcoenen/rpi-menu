@@ -6,17 +6,6 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 apt-get update && sudo apt-get dist-upgrade -y
-
-#install webmin
-
-echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
-cd /root
-wget http://www.webmin.com/jcameron-key.asc
-apt-key add jcameron-key.asc
-
-apt-get update
-apt-get install webmin
-
 #download youtube-dl and set output folder
 sudo wget https://yt-dl.org/downloads/2016.06.03/youtube-dl -O /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl

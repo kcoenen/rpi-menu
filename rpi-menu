@@ -1,6 +1,12 @@
 #!/bin/bash
 
-echo "$(tput setaf 2)
+if [[ $EUID -ne 0 ]]; then
+    echo "This script should only be run as root"
+    exit 1
+fi
+
+function logo {
+		echo "$(tput setaf 2)
    .~~.   .~~.
   '. \ ' ' / .'$(tput setaf 1)
    .~ .~~~..~.
@@ -12,43 +18,55 @@ echo "$(tput setaf 2)
    '~ .~~~. ~'
        '~'
 $(tput sgr0)"
+sleep 2s
+}
+ 
+while getopts "ufrsgch" opt; do
+  case "$opt" in
+	u)
+		logo && sudo apt-get update && sudo apt-get dist-upgrade -y
+	;;
+	f)
+		logo && sudo rpi-update
+	;;
+	r)
+		sudo shutdown -r now
+	;;
+	s)
+		sudo shutdown -h now
+	;;
+	g)
+		sudo startx
+	;;
+	c)
+		logo && cd /media/HDD/youtube && ./convert.sh
+	;;
+	h)
+		logo
+		echo "-u	update"
+		echo "-f	update firmware"
+		echo "-r	reboot"
+		echo "-s	shutdown"
+		echo "-g	start gui"
+		echo "-c	convert"
+		exit
+	;;
+  esac
+done
 
-if [[ $EUID -ne 0 ]]; then
-    echo "This script should only be run as root"
-    exit 1
-fi
-
-echo "what do you want to do:"
-echo "update		[1]"
-echo "reboot		[2]"
-echo "shutdown 	[3]"
-echo "start gui	[4]"
-echo "convert		[5]"
-echo "rpi-config	[6]"
-echo "exit		[7]"
-echo "What do you want to do now give number followd by [ENTER]:"
-read option
-
-case $option in
-1)
-sudo apt-get update && sudo apt-get dist-upgrade -y && sudo rpi-update
-;;
-2)
-sudo shutdown -r now
-;;
-3)
-sudo shutdown -h now
-;;
-4)
-sudo startx
-;;
-5)
-cd /media/HDD/youtube && ./convert.sh
-;;
-6)
-sudo raspi-config
-;;
-7)
-exit
-;;
-esac
+while getopts ":h" opt; do
+  case $opt in
+	h)
+		echo "-u	update"
+		echo "-f	update firmware"
+		echo "-r	reboot"
+		echo "-s	shutdown"
+		echo "-g	start gui"
+		echo "-c	convert"
+		exit
+	;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done

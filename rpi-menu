@@ -53,20 +53,3 @@ while getopts "ufrsgch" opt; do
 	;;
   esac
 done
-
-while getopts ":h" opt; do
-  case $opt in
-	h)
-		echo "-u	update"
-		echo "-f	update firmware"
-		echo "-r	reboot"
-		echo "-s	shutdown"
-		echo "-g	start gui"
-		echo "-c	convert"
-		exit
-	;;
-    \?)
-      echo "Invalid option: -$OPTARG" >&2
-      ;;
-  esac
-done

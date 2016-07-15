@@ -43,6 +43,7 @@ while getopts "ufrsgch" opt; do
 	;;
 	h)
 		logo
+		echo "[OPTIONS]"
 		echo "-u	update"
 		echo "-f	update firmware"
 		echo "-r	reboot"

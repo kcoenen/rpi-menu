@@ -20,14 +20,14 @@ function logo {
 $(tput sgr0)"
 sleep 2s
 }
- 
+logo
 while getopts "ufrsgch" opt; do
   case "$opt" in
 	u)
-		logo && sudo apt-get update && sudo apt-get dist-upgrade -y
+		sudo apt-get update && sudo apt-get dist-upgrade -y
 	;;
 	f)
-		logo && sudo rpi-update
+		sudo rpi-update
 	;;
 	r)
 		sudo shutdown -r now
@@ -39,10 +39,9 @@ while getopts "ufrsgch" opt; do
 		sudo startx
 	;;
 	c)
-		logo && cd /media/HDD/youtube && ./convert.sh
+		cd /media/HDD/youtube && ./convert.sh
 	;;
 	h)
-		logo
 		echo "[OPTIONS]"
 		echo "-u	update"
 		echo "-f	update firmware"

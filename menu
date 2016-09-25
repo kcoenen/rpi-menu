@@ -24,10 +24,7 @@ logo
 while getopts "ufrsgch" opt; do
   case "$opt" in
 	u)
-		sudo apt-get update && sudo apt-get dist-upgrade -y
-	;;
-	f)
-		sudo rpi-update
+		sudo pacman -Syu
 	;;
 	r)
 		sudo shutdown -r now
@@ -36,15 +33,14 @@ while getopts "ufrsgch" opt; do
 		sudo shutdown -h now
 	;;
 	g)
-		sudo startx
+		exit #sudo startx
 	;;
 	c)
-		cd /media/HDD/youtube && ./convert.sh
+		cd /mnt/HDD/youtube && ./convert.sh
 	;;
 	h)
 		echo "[OPTIONS]"
 		echo "-u	update"
-		echo "-f	update firmware"
 		echo "-r	reboot"
 		echo "-s	shutdown"
 		echo "-g	start gui"

@@ -20,14 +20,14 @@ function logo {
 $(tput sgr0)"
 sleep 2s
 }
-logo
-while getopts "ufrsgch" opt; do
+ 
+while getopts "ufrsgchv" opt; do
   case "$opt" in
 	u)
-		sudo apt-get update && sudo apt-get dist-upgrade -y
+		logo && sudo apt-get update && sudo apt-get dist-upgrade -y
 	;;
 	f)
-		sudo rpi-update
+		logo && sudo rpi-update
 	;;
 	r)
 		sudo shutdown -r now
@@ -39,9 +39,10 @@ while getopts "ufrsgch" opt; do
 		sudo startx
 	;;
 	c)
-		cd /media/HDD/youtube && ./convert.sh
+		logo && cd /media/HDD/youtube && ./convert.sh
 	;;
 	h)
+		logo
 		echo "[OPTIONS]"
 		echo "-u	update"
 		echo "-f	update firmware"
@@ -50,6 +51,9 @@ while getopts "ufrsgch" opt; do
 		echo "-g	start gui"
 		echo "-c	convert youtube to mp3"
 		exit
+	;;
+	v)
+		vncserver -geometry 1920x1080
 	;;
   esac
 done
